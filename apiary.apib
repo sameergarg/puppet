@@ -1,0 +1,47 @@
+FORMAT: 1A
+HOST: http://www.google.com
+
+# movierental
+Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+
+# Group Notes
+Notes related resources of the **Movie Rental API**
+
+## Movie Collection [/movies]
+### List all Notes [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "title": "Lord of the rings"
+        }, {
+          "id": 2, "title": "Matrix"
+        }]
+
+### Add a Movie [POST]
++ Request (application/json)
+
+        { "title": "Add a movie in library" }
+
++ Response 201 (application/json)
+
+        { "id": 4, "title": "Spiderman" }
+
+## Movie [/movies/{id}]
+A single Movie object with all its details
+
++ Parameters
+    + id (required, string, `lord_of_the_rings`) ... String `id` of the movie name to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": "lord_of_the_rings", "title": "Lord of the rings" }
+
+### Remove a Note [DELETE]
++ Response 204
